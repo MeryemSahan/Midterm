@@ -1,0 +1,137 @@
+---
+title: "Title"
+author: 
+  - Meryem Şahan[^1]
+bibliography: ../bibliography/biblio.bib
+csl: ../csl/apa.csl
+header-includes:
+  - \usepackage{polyglossia}
+  - \setmainlanguage{english}
+  - \usepackage{booktabs}
+  - \usepackage{caption} 
+  - \captionsetup[table]{skip=10pt}
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    fig_height: 3
+    fig_width: 4
+    keep_tex: no
+    latex_engine: xelatex
+    number_sections: yes
+    toc: no
+geometry: margin=1in
+link-citations: yes
+urlcolor: blue
+fontsize: 12pt
+biblio-style: apalike
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+<!-- ======================================================================= -->
+<!-- ============================== FOOTNOTES ============================== -->
+<!-- ======================================================================= -->
+[^1]: 21080515, [Github Repo](https://github.com/MeryemSahan/Midterm.git)
+
+
+
+
+# Introduction
+[@kim2019comparing]
+deneme 1
+
+@SHEN201117
+
+
+Shen et al. (2011)  conducted a comparative analysis of urban sustainability indicators used in different practices, proposing a comparative basis to guide the selection of indicators for sustainable urbanization plans.
+
+@haghshenas2012urban
+
+## Literature Review
+
+
+deneme deneme deneme 
+
+#Data Retrival
+I have received my data using World Bank's special package for R. Code chunks are not shown in the pdf file but it is available in r project.
+
+```{r GDP Growth Rate, eval=FALSE, cache=TRUE, include=FALSE}
+library(WDI)
+countries <- c("EG", "TR", "AU", "IN", "IR", "CA", "KE", "IQ", "DK", "NG", "MX", "DE", "PK", "RO", "IL", "LK", "BR", "NZ", "GH", "BG", "SE", "ID", "LY", "US", "BD", "MU", "JP", "RU", "KR")
+start_year <- 2010
+end_year <- 2020
+indicator <- "NY.GDP.MKTP.KD.ZG"
+gdp_growthrate_data <- WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+"
+ file_path <- "C:/Users/Meryem/Desktop/Proposal/data/gdp_growthrate_data.csv"
+write.csv(gdp_growthrate_data, file = file_path, row.names = FALSE)
+
+
+```
+
+```{r World Governance Indicators, eval=FALSE, cache=TRUE, include=FALSE}
+indicators <- c("RQ.EST", "VA.EST", "PV.EST", "GE.EST", "CC.EST", "RL.EST")
+wgi_data <- WDI(country = countries, indicator = indicators, start = start_year, end = end_year)
+ file_path <- "C:/Users/Meryem/Desktop/Proposal/data/wgi_data.csv"
+ 
+write.csv(wgi_data, file = file_path, row.names = FALSE)
+```
+
+```{r GDP per capita, eval=FALSE, cache=TRUE, include=FALSE}
+indicator <- "NY.GDP.PCAP.KD"
+gdpcap_data <- WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/gdpcap_data.csv"
+write.csv(gdpcap_data, file = file_path, row.names = FALSE)
+
+```
+
+
+```{r Trade (% of GDP), eval=FALSE, cache=TRUE, include=FALSE, echo=FALSE}
+indicator <- "NE.TRD.GNFS.ZS"
+trade_data <-  WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/trade_data.csv"
+write.csv(trade_data, file = file_path, row.names = FALSE)
+
+```
+
+
+```{r Foreign direct investment, eval=FALSE, include=FALSE, cache=TRUE, echo=FALSE}
+indicator <- "BX.KLT.DINV.WD.GD.ZS"
+fdi_data <-  WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/fdi_data.csv"
+write.csv(fdi_data, file = file_path, row.names = FALSE)
+
+```
+
+
+```{r Labor Force, eval=FALSE, include=FALSE, cache=TRUE, echo=FALSE}
+indicator <- "SL.TLF.TOTL.IN"
+lab_data <-  WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/fdi_data.csv"
+write.csv(lab_data, file = file_path, row.names = FALSE)
+
+```
+
+
+```{r Education Expenditure, eval=FALSE, cache=TRUE, include=FALSE, echo=FALSE}
+indicator <- "SE.XPD.TOTL.GD.ZS"
+ed_data <- WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/ed_data.csv"
+write.csv(ed_data, file = file_path, row.names = FALSE)
+```
+
+```{r Gini Coefficent, eval=FALSE, cache=TRUE, include=FALSE, echo=FALSE}
+indicator <- "SI.POV.GINI"
+gini_data <- WDI(country = countries, indicator = indicator, start = start_year, end = end_year)
+
+file_path <- "C:/Users/Meryem/Desktop/Proposal/data/gini_data.csv"
+write.csv(gini_data, file= file_path, row.names = FALSE)
+
+```
+
+
+\newpage
+# References {#references}
+<div id="refs"></div>
+
