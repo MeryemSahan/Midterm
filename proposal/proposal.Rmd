@@ -1,5 +1,5 @@
 ---
-title: "Title"
+title: "The Impact of World Governance Indicators on Economic Development: A Comparative Study"
 author: 
   - Meryem Şahan[^1]
 bibliography: ../bibliography/biblio.bib
@@ -35,26 +35,33 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 [^1]: 21080515, [Github Repo](https://github.com/MeryemSahan/Midterm.git)
 
 
-
-
 # Introduction
-[@kim2019comparing]
-deneme 1
 
-@SHEN201117
+National development is a complex and multifaceted phenomenon that depends on a range of economic, social, and political factors. Understanding the drivers of national and economic development and the ways in which different countries compare and contrast in terms of their development outcomes is an important area of research that has implications for policy and practice around the world. Governance and economic development have been extensively studied over the past few decades. Good governance has been shown to be a crucial factor in promoting economic growth and reducing poverty @kauffman1999governance and @mauro1995corruption
+ 
+  The aim of this study is to compare governance indicators across high-income, low-income, and middle-income countries to analyze the relationship between government indicators and socio-economic outcomes. By doing so, it is hoped to shed light on the importance of good governance and public institutions for achieving sustainable economic and social development. It will be examined the relationship between governance and economic development using a variety of indicators such as labor force participation rate, Gini coefficient, GDP growth rate, trade openness, education expenditure, human development index, and foreign direct investment.
+ 
+  The study seeks to answer several research questions, including whether there are significant correlations between government indicators and economic outcomes, which government indicators are most strongly associated with these outcomes, and how these relationships vary across countries with different income levels.
 
+  Labor force participation rate is a key economic indicator that measures the percentage of the population that is either employed or actively seeking employment. The Gini coefficient is a measure of income inequality that reflects how wealth is distributed within a population.  GDP growth rate measures the rate at which a country's economy is growing over a period of time. As stated by the [@alesina2010political]"Unequal distribution of wealth creates a concentration of power and resources in the hands of a few, leading to an imbalance in society that can undermine democratic governance, limit opportunities for social mobility, and contribute to political instability and conflict." This highlights the importance of considering not only GDP and GDP growth rate, but also measures of income inequality such as the Gini coefficient, as they reflect how wealth is distributed within a population. Ultimately, a more equal distribution of wealth can lead to a more stable and prosperous society.  Trade openness measures a country's degree of participation in international trade, and education expenditure reflects the amount of resources a country allocates to education. Human development index measures a country's overall progress in terms of health, education, and standard of living which is an important index that shows the quality of human capital, while foreign direct investment represents a key source of external financing that can fuel economic growth.
 
-Shen et al. (2011)  conducted a comparative analysis of urban sustainability indicators used in different practices, proposing a comparative basis to guide the selection of indicators for sustainable urbanization plans.
-
-@haghshenas2012urban
+  Given the importance of good governance in promoting economic development, it is vital to understand how governance indicators are related to economic indicators. In particular, we aim to examine how changes in governance affect economic development, as well as the reverse relationship, i.e., how economic development can affect governance. To operationalize this study, it is utilized publicly available data from the World Bank and the United Nations. By exploring these relationships, it can be observed insights into the mechanisms through which governance and economic development interact, and potentially identify policy interventions that can promote both good governance and economic growth.
 
 ## Literature Review
 
+  Good governance is widely recognized as a key factor in promoting economic development. Countries with effective and transparent governance systems tend to have higher levels of investment, trade, and human development, as well as lower levels of inequality @kaufmann2002governance Numerous studies have found a positive relationship between good governance and GDP per capita. For instance, @acemoglu2019democracy found that improvements in governance led to significant increases in GDP per capita. 
+ 
+  @keser2018governance conducted a study on the impacts of governance indicators on human development in 33 member and candidate countries of the European Union. They found that good governance, particularly in the areas of government effectiveness, regulatory quality, and rule of law, had a positive correlation with the human development level of a country. 
+ 
+  Meanwhile, in sub-Saharan Africa @fayissa2013impact found evidence that good governance is positively related to economic growth. @olson2000governance argued that the gap in per capita incomes, technologies, and capital stock per worker between an undeveloped area and a leading country can impact the rate of catch-up growth, particularly if the undeveloped area is adequately governed. 
+ @rivera2002democracy found that democracy is a significant determinant of total factor productivity growth, but this contribution occurs only insofar as stronger democratic institutions are associated with greater quality of governance. Overall, these studies suggest that good governance plays a vital role in promoting economic development, particularly in developing countries. 
+   
+  @eicher2010governance found that improvements in governance led to increased trade openness in African countries. Moreover, @brautigam2015aid found that countries with better governance tend to have higher levels of foreign direct investment and economic growth. These studies suggest that improvements in governance can lead to a more stable and predictable environment for investment and business activity, which in turn can promote economic growth and development.
+  
+  Governance can play an important role in reducing inequality, with countries that have better governance systems tending to have lower levels of inequality.@worldbank2017governance 
+@McGrattan2011  provides empirical evidence that when countries are transitioning to FDI openness, the anticipated welfare gains can lead to temporary declines in domestic investment and employment. The Gini coefficient is a widely used measure of income inequality. @hasanov2011income found that income inequality has a negative impact on economic growth, suggesting that countries with lower levels of income inequality are more likely to experience higher levels of economic growth. 
 
-deneme deneme deneme 
-
-#Data Retrival
-I have received my data using World Bank's special package for R. Code chunks are not shown in the pdf file but it is available in r project.
+ Literature suggests that good governance is an important determinant of economic development however the relationship between governance and economic development is complex and multifaceted, with numerous factors potentially affect outcome. However, while there are many studies that examine the relationship between specific governance indicators and economic indicators, few studies compare a comprehensive set of governance indicators with a comprehensive set of economic indicators. That is why in this study  it is tried to approach more holistically by examining a range of governance indicators and economic indicators across a diverse set of countries, including low- and middle-income countries, and contribute to a better understanding of the relationship between governance and economic development. This understanding is crucial for policymakers who seek to promote economic growth and development in their countries.
 
 ```{r GDP Growth Rate, eval=FALSE, cache=TRUE, include=FALSE}
 library(WDI)
@@ -120,6 +127,7 @@ ed_data <- WDI(country = countries, indicator = indicator, start = start_year, e
 file_path <- "C:/Users/Meryem/Desktop/Proposal/data/ed_data.csv"
 write.csv(ed_data, file = file_path, row.names = FALSE)
 ```
+
 
 ```{r Gini Coefficent, eval=FALSE, cache=TRUE, include=FALSE, echo=FALSE}
 indicator <- "SI.POV.GINI"
